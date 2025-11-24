@@ -3,7 +3,7 @@ schema_version: 1
 context:
   python_min: 3.10
   name: paradoc
-  version: 0.3.3
+  version: 0.4.0
 
 package:
   name: ${{ name }}
@@ -11,7 +11,9 @@ package:
 
 source:
   url: https://github.com/Krande/paradoc/archive/v${{ version }}.tar.gz
-  sha256: b82ee4c9bc990e339f3341559dd9bd464efb3cf3c7105af5d8ef35920a0b03d4
+  sha256: b5b0ba186090f9c83aeece75fa6de51ed5a09fc860aab6f3c74b5f46b221f04f
+  patches:
+    - patches\add_future_annotations.patch
 
 build:
   number: 2
@@ -28,17 +30,19 @@ requirements:
     - setuptools
   run:
     - python >=${{ python_min }}
-    - pandoc 3.1.2.*
-    - pandoc-crossref 0.3.16.*
-    - pypandoc 1.12.*
+    - pandoc
+    - pandoc-crossref
+    - pypandoc
     - python-docx
-    - docxcompose
+    - python-kaleido
     - numpy
     - pandas
     - openpyxl
     - tabulate
+    - pydantic
     - svgwrite
     - pytexit
+    - plotly
     - typer
     - if: unix
       then: __unix
@@ -57,9 +61,10 @@ tests:
         - pytest
         - pytest-cov
         - python ${{ python_min }}.*
+        - playwright
+        - pytest-playwright
     script:
-      - cd tests
-      - pytest
+      - pytest tests
 
 about:
   license: GPL-3.0-or-later
