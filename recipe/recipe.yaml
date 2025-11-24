@@ -48,8 +48,6 @@ requirements:
       then: pywin32
 
 tests:
-  - python:
-      pip_check: false
   - files:
       source:
         - tests
