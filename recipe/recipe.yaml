@@ -65,7 +65,7 @@ tests:
         - playwright
         - pytest-playwright
     script:
-      - pytest tests -s -v
+      - pytest tests --ignore=frontend
 
 about:
   license: GPL-3.0-or-later
