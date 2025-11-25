@@ -16,7 +16,7 @@ source:
     - patches/add_future_annotations.patch
 
 build:
-  number: 2
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   python:
@@ -65,7 +65,7 @@ tests:
         - playwright
         - pytest-playwright
     script:
-      - pytest tests
+      - pytest tests -s -v
 
 about:
   license: GPL-3.0-or-later
