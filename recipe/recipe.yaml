@@ -13,7 +13,7 @@ source:
   url: https://github.com/Krande/paradoc/archive/v${{ version }}.tar.gz
   sha256: b5b0ba186090f9c83aeece75fa6de51ed5a09fc860aab6f3c74b5f46b221f04f
   patches:
-    - patches\add_future_annotations.patch
+    - patches/add_future_annotations.patch
 
 build:
   number: 2
@@ -42,6 +42,7 @@ requirements:
     - pydantic
     - svgwrite
     - pytexit
+    - websockets
     - plotly
     - typer
     - if: unix

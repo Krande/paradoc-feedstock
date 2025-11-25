@@ -1,5 +1,3 @@
-Subject: [PATCH] add future annotations
----
 Index: src/paradoc/io/ast/exporter.py
 IDEA additional info:
 Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
@@ -7,7 +5,7 @@ Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
 ===================================================================
 diff --git a/src/paradoc/io/ast/exporter.py b/src/paradoc/io/ast/exporter.py
 --- a/src/paradoc/io/ast/exporter.py	(revision 9ee9b00cbd99214eff0c6da277050785c4879a77)
-+++ b/src/paradoc/io/ast/exporter.py	(date 1764010612903)
++++ b/src/paradoc/io/ast/exporter.py	(revision e7e7f99581bbc44b886cc1b39e18f4cd330dd633)
 @@ -1,3 +1,5 @@
 +from __future__ import annotations
 +
@@ -21,10 +19,41 @@ Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
 ===================================================================
 diff --git a/src/paradoc/io/word/com_api/com_utils.py b/src/paradoc/io/word/com_api/com_utils.py
 --- a/src/paradoc/io/word/com_api/com_utils.py	(revision 9ee9b00cbd99214eff0c6da277050785c4879a77)
-+++ b/src/paradoc/io/word/com_api/com_utils.py	(date 1764011347377)
++++ b/src/paradoc/io/word/com_api/com_utils.py	(revision e7e7f99581bbc44b886cc1b39e18f4cd330dd633)
 @@ -1,3 +1,5 @@
 +from __future__ import annotations
 +
  import functools
  import multiprocessing as mp
  import pathlib
+Index: tests/docx_cross/test_pandoc_direct.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/tests/docx_cross/test_pandoc_direct.py b/tests/docx_cross/test_pandoc_direct.py
+--- a/tests/docx_cross/test_pandoc_direct.py	(revision e7e7f99581bbc44b886cc1b39e18f4cd330dd633)
++++ b/tests/docx_cross/test_pandoc_direct.py	(revision 89020aabe2bdd378f079c9e58798400dbb546a8b)
+@@ -47,7 +47,6 @@
+         format="markdown",
+         extra_args=[f"--resource-path={main_dir.absolute()}"],
+         filters=["pandoc-crossref"],
+-        encoding="utf8",
+         sandbox=False,
+     )
+ 
+Index: tests/figures/test_pandoc_directly.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/tests/figures/test_pandoc_directly.py b/tests/figures/test_pandoc_directly.py
+--- a/tests/figures/test_pandoc_directly.py	(revision e7e7f99581bbc44b886cc1b39e18f4cd330dd633)
++++ b/tests/figures/test_pandoc_directly.py	(revision 89020aabe2bdd378f079c9e58798400dbb546a8b)
+@@ -30,6 +30,5 @@
+         format="markdown",
+         extra_args=[f"--resource-path={md_file.parent.absolute()}"],
+         filters=["pandoc-crossref"],
+-        encoding="utf8",
+         sandbox=False,
+     )
